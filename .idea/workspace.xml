@@ -6,12 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="97c4fd11-023d-4233-9d25-8e604da459be" name="Changes" comment="push">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/compression/run_length_encoding.py" beforeDir="false" afterPath="$PROJECT_DIR$/compression/run_length_encoding.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/Compression/decoded_image.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/output/Compression/decoded_image.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/cellct/binary_image.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/output/cellct/binary_image.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/cellct/cell_stats.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/output/cellct/cell_stats.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/region_analysis/binary_image.py" beforeDir="false" afterPath="$PROJECT_DIR$/region_analysis/binary_image.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/region_analysis/cell_counting.py" beforeDir="false" afterPath="$PROJECT_DIR$/region_analysis/cell_counting.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -136,7 +130,7 @@
       <workItem from="1635290234947" duration="1781000" />
       <workItem from="1635292066966" duration="1778000" />
       <workItem from="1635293916836" duration="1764000" />
-      <workItem from="1635295803486" duration="1136000" />
+      <workItem from="1635295803486" duration="1426000" />
     </task>
     <task id="LOCAL-00001" summary="push">
       <created>1635277803119</created>
@@ -145,7 +139,14 @@
       <option name="project" value="LOCAL" />
       <updated>1635277803120</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="push">
+      <created>1635297065245</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1635297065246</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
