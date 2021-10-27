@@ -1,131 +1,121 @@
-import cv2
 import numpy as np
+import cv2
 
 class CellCounting:
     def __init__(self):
         pass
-    region_stat = {};
+
     def blob_coloring(self, image):
-        """Uses the blob coloring algorithm based on 5 pixel cross window and assigns region names
+        """Uses the blob coloring algorithm based on 5 pixel cross window assigns region names
         takes a input:
         image: binary image
-        return: a list/dict of regions"""
-        width, height = image.shape;
-        k = 1;
-        regions = np.zeros((width, height), np.uint32)
-        for y in range(0, height):
-            for x in range(0, width):
-                if (image[x, y] == 255):
-                    if (((x - 1) >= 0) and ((y - 1) >= 0)):
-                        if ((image[x - 1, y] == 0) and (image[x, y - 1] == 0)):
-                            regions[x, y] = k;
-                            k = k + 1;
-                        if ((image[x - 1, y] == 255) and (image[x, y - 1] == 0)):
-                            regions[x, y] = regions[x - 1, y];
-                        if ((image[x - 1, y] == 0) and (image[x, y - 1] == 255)):
-                            regions[x, y] = regions[x, y - 1];
-                        if ((image[x - 1, y] == 255) and (image[x, y - 1] == 255)):
-                            regions[x, y] = regions[x, y - 1];
-                            if (regions[x - 1, y] != regions[x, y - 1]):
-                                regions[x - 1, y] = regions[x, y - 1];
-                                b = 2;
-                                f = 0;
-                                while f == 0:
-                                    if image[x - b, y] != 0:
-                                        regions[x - b, y] = regions[x - b + 1, y]
-                                        b = b + 1
-                                    else:
-                                        f = 1
-                    if ((x == 0) and (y != 0)):
-                        if ((image[x, y - 1]) == 0):
-                            regions[x, y] = k;
-                            k = k + 1;
-                        if(regions[x,y-1]>0):
-                            regions[x, y] = regions[x, y - 1];
-
-                    if ((x != 0) and (y == 0)):
-                        if ((image[x - 1, y]) == 0):
-                            regions[x, y] = k;
-                            k = k + 1;
-                        if(regions[x-1,y]>0):
-                            regions[x, y] = regions[x - 1, y];
-
-        # pixels count
-        count = [0] * k;
-        for x in range(0, width):
-            for y in range(0, height):
-                if (regions[x, y] > 0):
-                    count[regions[x, y]] = count[regions[x, y]] + 1;
-
-        # regions
-        coordinates = {};
-        for x in range(0, width):
-            for y in range(0, height):
-                if regions[x, y] != 0:
-                    if regions[x, y] in coordinates:
-                        coordinates[regions[x, y]].append([x, y]);
-                    else:
-                        coordinates[regions[x, y]] = [[x, y]];
-
-        # centroid
-        index = 1;
-        for a in coordinates.keys():
-            first = 0;
-            for coord in coordinates[a]:
-                if (first == 0):
-                    x1 = coord[0];
-                    x2 = coord[0];
-                    y1 = coord[1];
-                    y2 = coord[1];
-                    first = 1;
-                else:
-                    if (x1 > coord[0]):
-                        x1 = coord[0];
-                    elif (x2 < coord[0]):
-                        x2 = coord[0];
-                    if (y1 > coord[1]):
-                        y1 = coord[1];
-                    elif (y2 < coord[1]):
-                        y2 = coord[1];
-            x_difference = x2 - x1
-            Xcenter = x1 + (x_difference / 2)
-            y_difference = y2 - y1
-            Ycenter = y1 + (y_difference / 2)
-            index = index + 1;
-            if (len(coordinates[a]) > 15):
-                self.region_stat[index] = [a, len(coordinates[a]), [Xcenter, Ycenter]]
-        # stats printing
-        for a in self.region_stat.keys():
-            print("Region, Area, Centroid:", self.region_stat[a])
-
-                   
-                    
-        regions = dict()
-
-        return regions
+        return: a list of regions"""
+        r1, c1 = np.shape(image)
+        k_val = np.zeros((r1, c1))
+        s = 1
+        for i in range(0, r1):
+            for j in range(0, c1):
+                if i == 0 and j == 0:
+                    if image[i][j] == 255:
+                        k_val[i][j] = s
+                        s = s+1
+                elif i == 0:
+                    if image[i][j] == 255:
+                        if image[i][j-1] == 255:
+                            k_val[i][j] = k_val[i][j-1]
+                        else:
+                            k_val[i][j] = s
+                            s = s+1
+                elif j == 0:
+                    if image[i][j] == 255:
+                        if image[i-1][j] == 255:
+                            k_val[i][j] = k_val[i-1][j]
+                        else:
+                            k_val[i][j] = s
+                            s = s + 1
+                elif image[i-1][j] == 0 and image[i][j-1] == 0 and image[i][j] == 255:
+                    k_val[i][j] = s
+                    s = s+1
+                elif image[i-1][j] == 255 and image[i][j-1] == 0 and image[i][j] == 255:
+                    k_val[i][j] = k_val[i-1][j]
+                elif image[i-1][j] == 0 and image[i][j-1] == 255 and image[i][j] == 255:
+                    k_val[i][j] = k_val[i][j-1]
+                elif image[i-1][j] == 255 and image[i][j-1] == 255 and image[i][j] == 255:
+                    k_val[i][j] = k_val[i-1][j]
+                    if k_val[i][j-1] != k_val[i-1][j]:
+                        x = i
+                        y = j
+                        while image[x, y] == 255:
+                            y = y - 1
+                            if image[x, y] != 0:
+                                A = x
+                                B = y
+                                k_val[x, y] = k_val[i, j]
+                                while image[A, B] == 255:
+                                    A = A - 1
+                                    if image[A, B] != 0:
+                                        k_val[A, B] = k_val[x, y]
+                        s = s - 1
+        return k_val
 
     def compute_statistics(self, region):
-        """Computes cell statistics area and location
+        """Compute cell statistics area and location
         takes as input
         region: list regions and corresponding pixels
         returns: stats"""
-        stats = self.region_stat
 
         # Please print your region statistics to stdout
         # <region number>: <location or center>, <area>
         # print(stats)
+        statistics_1 = {}
+        r1, c1 = region.shape
+        for i in range(r1):
+            for j in range(c1):
+                if region[i][j] not in statistics_1:
+                    statistics_1[region[i][j]] = 1
+                else:
+                    statistics_1[region[i][j]] = statistics_1[region[i][j]] + 1
 
-        return stats
+        statistics = {}
+        for key, value in statistics_1.items():
+            if key != 0.0 and value > 15:
+                statistics[key] = value
+        lp = {}
+        for key, value in statistics.items():
+            x_cor = 0
+            y_cor = 0
+            countvalue = 0
+            for i in range(r1):
+                for j in range(c1):
+                    if region[i][j] !=0:
+                        if key == region[i][j]:
+                            x_cor = x_cor + i
+                            y_cor = y_cor + j
+                            countvalue = countvalue + 1
+            lp[key] = (round(x_cor/countvalue), round(y_cor/countvalue))
+
+        return statistics, lp
 
     def mark_image_regions(self, image, stats):
         """Creates a new image with computed stats
-        Make a copy of the image on which you can write text. 
+        Make a copy of the image on which you can write text.
         takes as input
         image: Input binary image
         stats: stats regarding location and area
         returns: image marked with center and area"""
-        for key in stats.keys():
-            cv2.putText(image, '*' + repr(stats[key][0])+ ',' +repr(stats[key][1]), (int(stats[key][2][1]), int(stats[key][2][0])),
-                        cv2.FONT_HERSHEY_SIMPLEX, 0.3, 100)
-        return image
+        dict1 = {}
+        dict2 = {}
+        dict1 = stats[0]
+        dict2 = stats[1]
 
+        for key, value in dict1.items():
+            print("Region: " + str(round(key)) + ",Area: " + str(dict1[key]) + ",Centroid: " + str(dict2[key]))
+
+        image1 = cv2.cvtColor(image, cv2.COLOR_RGB2BGR)
+
+        for key, value in dict1.items():
+            (y, x) = (dict2[key][1], dict2[key][0])
+            image = cv2.circle(image1, (y, x), 1, (0, 0, 255), 1)
+            image = cv2.putText(image1, str(round(key)) + ", " + str(dict1[key]), (y+2, x+2), cv2.FONT_HERSHEY_SIMPLEX, 0.2,
+            (0, 0, 0), 1)
+        return image

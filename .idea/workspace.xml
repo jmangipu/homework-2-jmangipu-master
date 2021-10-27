@@ -4,13 +4,25 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="97c4fd11-023d-4233-9d25-8e604da459be" name="Changes" comment="" />
+    <list default="true" id="97c4fd11-023d-4233-9d25-8e604da459be" name="Changes" comment="push">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/compression/run_length_encoding.py" beforeDir="false" afterPath="$PROJECT_DIR$/compression/run_length_encoding.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/Compression/decoded_image.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/output/Compression/decoded_image.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/cellct/binary_image.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/output/cellct/binary_image.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/cellct/cell_stats.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/output/cellct/cell_stats.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/region_analysis/binary_image.py" beforeDir="false" afterPath="$PROJECT_DIR$/region_analysis/binary_image.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/region_analysis/cell_counting.py" beforeDir="false" afterPath="$PROJECT_DIR$/region_analysis/cell_counting.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="ProjectId" id="203MH5ttXvPubuVJ9QDAbu5m24S" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -18,6 +30,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
@@ -117,15 +130,45 @@
       <workItem from="1635268903639" duration="1625000" />
       <workItem from="1635272257345" duration="1766000" />
       <workItem from="1635274092056" duration="1767000" />
-      <workItem from="1635277429206" duration="85000" />
+      <workItem from="1635277429206" duration="1766000" />
+      <workItem from="1635286599472" duration="1768000" />
+      <workItem from="1635288427178" duration="1758000" />
+      <workItem from="1635290234947" duration="1781000" />
+      <workItem from="1635292066966" duration="1778000" />
+      <workItem from="1635293916836" duration="1764000" />
+      <workItem from="1635295803486" duration="1136000" />
     </task>
+    <task id="LOCAL-00001" summary="push">
+      <created>1635277803119</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1635277803120</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="push" />
+    <option name="LAST_COMMIT_MESSAGE" value="push" />
+  </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/homework_2_jmangipu_master$dip_hw2_region_analysis.coverage" NAME="dip_hw2_region_analysis Coverage Results" MODIFIED="1635277506777" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/homework_2_jmangipu_master$dip_hw2_region_analysis.coverage" NAME="dip_hw2_region_analysis Coverage Results" MODIFIED="1635296843319" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/homework_2_jmangipu_master$run_length_encoding.coverage" NAME="run_length_encoding Coverage Results" MODIFIED="1635269150896" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/compression" />
     <SUITE FILE_PATH="coverage/homework_2_jmangipu_master$binary_image.coverage" NAME="binary_image Coverage Results" MODIFIED="1635272688459" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/region_analysis" />
   </component>
