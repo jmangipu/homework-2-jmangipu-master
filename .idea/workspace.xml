@@ -6,6 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="97c4fd11-023d-4233-9d25-8e604da459be" name="Changes" comment="push">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/compression/run_length_encoding.py" beforeDir="false" afterPath="$PROJECT_DIR$/compression/run_length_encoding.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/Compression/decoded_image.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/output/Compression/decoded_image.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/region_analysis/cell_counting.py" beforeDir="false" afterPath="$PROJECT_DIR$/region_analysis/cell_counting.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -134,6 +137,11 @@
       <workItem from="1635297707062" duration="107000" />
       <workItem from="1635297900488" duration="887000" />
       <workItem from="1635298802774" duration="11000" />
+      <workItem from="1635298925154" duration="1526000" />
+      <workItem from="1635300700941" duration="1821000" />
+      <workItem from="1635302581665" duration="1764000" />
+      <workItem from="1635304401895" duration="1764000" />
+      <workItem from="1635306224890" duration="650000" />
     </task>
     <task id="LOCAL-00001" summary="push">
       <created>1635277803119</created>
@@ -170,7 +178,14 @@
       <option name="project" value="LOCAL" />
       <updated>1635298730287</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="push">
+      <created>1635298962811</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1635298962811</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -193,7 +208,7 @@
     <option name="LAST_COMMIT_MESSAGE" value="push" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/homework_2_jmangipu_master$dip_hw2_region_analysis.coverage" NAME="dip_hw2_region_analysis Coverage Results" MODIFIED="1635296843319" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/homework_2_jmangipu_master$dip_hw2_region_analysis.coverage" NAME="dip_hw2_region_analysis Coverage Results" MODIFIED="1635306322452" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/homework_2_jmangipu_master$run_length_encoding.coverage" NAME="run_length_encoding Coverage Results" MODIFIED="1635269150896" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/compression" />
     <SUITE FILE_PATH="coverage/homework_2_jmangipu_master$binary_image.coverage" NAME="binary_image Coverage Results" MODIFIED="1635272688459" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/region_analysis" />
   </component>

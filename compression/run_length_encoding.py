@@ -12,19 +12,28 @@ class Rle:
         image: binary_image
         returns run length code
         """
-        rle_code = []
-        for i in binary_image:
-            c = 0
-            initial_value = i[0]
-            rle_code.append(initial_value)
-            for k in i:
-                if k == initial_value:
-                    c = c + 1
+        rle_code = [];
+        width, height = binary_image.shape;
+        for x in range(width):
+            fir = binary_image[x, 0];
+            rle_code.append(fir);
+            count = 1;
+            lk = 0;
+            for y in range(height):
+                if (binary_image[x, y] == fir):
+                    if ((count == 1) and (y != 0)):
+                        rle_code.append(lk);
+                    count = count + 1;
+                    lk = 0;
                 else:
-                    rle_code.append(c)
-                    c = 1
-                    initial_value = k
-            rle_code.append(c)
+                    if ((lk == 0) and (y != 0)):
+                        rle_code.append(count - 1);
+                    lk = lk + 1;
+                    count = 1;
+            if (lk == 0):
+                rle_code.append(count - 1);
+            else:
+                rle_code.append(lk);
 
         return rle_code
         #return np.zeros(100)  # replace zeros with rle_code
@@ -38,37 +47,30 @@ class Rle:
         Height, width: height and width of the original image
         returns decoded binary image
         """
-        l1 = []
-        l2 = []
-        l3 = []
-        final = np.zeros([height, width])
-        i = 0
-        r1 = 0
-        c1 = 0
-        c = 0
-        for k in rle_code:
-            if k == 255 or k == 0:
-                l1.append(k)
-                l3.append(l2)
-                l2 = []
-            else:
-                l2.append(k)
-        l3 = l3[1:]
-        for k in l3:
-            value = l1[i]
-            for h in k:
-                while c < h:
-                    final[r1, c1] = value
-                    c1 = c1 + 1
-                    c = c + 1
-                if value == 255:
-                    value = 0
-                    c = 0
-                else:
-                    value = 255
-                    c = 0
-            r1 = r1 + 1
-            i = i + 1
-            c1 = 0
-        #return  np.zeros((100,100), np.uint8)  # replace zeros with image reconstructed from rle_Code
-        return final
+        re_image = np.zeros((height, width))
+        x1, y1 = re_image.shape;
+        r1 = 0;
+        ele1 = 0;
+        c1 = 0;
+        i = 0;
+        while (i < len(rle_code) - 1):
+            if ((rle_code[i] == 255) or (rle_code[i] == 0)):
+                next_rle = i + 1;
+                ele = rle_code[i];
+                while ((rle_code[next_rle] != 255) and (rle_code[next_rle] != 0) and (next_rle < len(rle_code) - 1)):
+                    for num in range(0, int(rle_code[next_rle])):
+                        re_image[r1][c1] = ele;
+                        if ((width - 1) > c1):
+                            c1 = c1 + 1;
+                        else:
+                            c1 = 0;
+                            r1 = r1 + 1
+                        ele1 = ele;
+                    if (ele1 == 0):
+                        ele = 255;
+                    elif (ele1 == 255):
+                        ele = 0;
+
+                    next_rle = next_rle + 1;
+            i = next_rle;
+        return re_image

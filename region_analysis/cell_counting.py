@@ -67,32 +67,32 @@ class CellCounting:
         # Please print your region statistics to stdout
         # <region number>: <location or center>, <area>
         # print(stats)
-        statistics_1 = {}
+        stat1 = {}
         r1, c1 = region.shape
         for i in range(r1):
             for j in range(c1):
-                if region[i][j] not in statistics_1:
-                    statistics_1[region[i][j]] = 1
+                if region[i][j] not in stat1:
+                    stat1[region[i][j]] = 1
                 else:
-                    statistics_1[region[i][j]] = statistics_1[region[i][j]] + 1
+                    stat1[region[i][j]] = stat1[region[i][j]] + 1
 
         statistics = {}
-        for key, value in statistics_1.items():
-            if key != 0.0 and value > 15:
-                statistics[key] = value
+        for keys, value in stat1.items():
+            if keys != 0.0 and value > 15:
+                statistics[keys] = value
         lp = {}
-        for key, value in statistics.items():
+        for keys, value in statistics.items():
             x_cor = 0
             y_cor = 0
             countvalue = 0
             for i in range(r1):
                 for j in range(c1):
                     if region[i][j] !=0:
-                        if key == region[i][j]:
+                        if keys == region[i][j]:
                             x_cor = x_cor + i
                             y_cor = y_cor + j
                             countvalue = countvalue + 1
-            lp[key] = (round(x_cor/countvalue), round(y_cor/countvalue))
+            lp[keys] = (round(x_cor/countvalue), round(y_cor/countvalue))
 
         return statistics, lp
 
@@ -103,19 +103,18 @@ class CellCounting:
         image: Input binary image
         stats: stats regarding location and area
         returns: image marked with center and area"""
-        dict1 = {}
-        dict2 = {}
+
         dict1 = stats[0]
         dict2 = stats[1]
 
-        for key, value in dict1.items():
-            print("Region: " + str(round(key)) + ",Area: " + str(dict1[key]) + ",Centroid: " + str(dict2[key]))
+        for keys, value in dict1.items():
+            print("Region: " + str(round(keys)) + ",Area: " + str(dict1[keys]) + ",Centroid: " + str(dict2[keys]))
 
-        image1 = cv2.cvtColor(image, cv2.COLOR_RGB2BGR)
+        im1 = cv2.cvtColor(image, cv2.COLOR_RGB2BGR)
 
-        for key, value in dict1.items():
-            (y, x) = (dict2[key][1], dict2[key][0])
-            image = cv2.circle(image1, (y, x), 1, (0, 0, 255), 1)
-            image = cv2.putText(image1, str(round(key)) + ", " + str(dict1[key]), (y+2, x+2), cv2.FONT_HERSHEY_SIMPLEX, 0.2,
+        for keys, value in dict1.items():
+            (y, x) = (dict2[keys][1], dict2[keys][0])
+            image = cv2.circle(im1, (y, x), 1, (0, 0, 255), 1)
+            image = cv2.putText(im1, str(round(keys)) + ", " + str(dict1[keys]), (y+2, x+2), cv2.FONT_HERSHEY_SIMPLEX, 0.2,
             (0, 0, 0), 1)
         return image
